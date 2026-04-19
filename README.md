@@ -36,7 +36,7 @@ i23-2552-NLP-Assignment2/
 pip install torch numpy scikit-learn matplotlib
 ```
 
-Python 3.8+ and PyTorch 1.12+ recommended. A CUDA-capable GPU is strongly recommended — the notebook was trained on GPU and Skip-gram training takes ~45 minutes per condition on CPU.
+Python 3.8+ and PyTorch 1.12+ recommended. A CUDA-capable GPU is strongly recommended. The notebook was trained on GPU and Skip-gram training takes ~45 minutes per condition on CPU.
 
 ---
 
