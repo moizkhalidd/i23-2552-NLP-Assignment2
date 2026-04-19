@@ -64,20 +64,20 @@ The notebook is fully self-contained — all embeddings, models, and data files 
 
 ## Parts Overview
 
-### Part 1 — Word Embeddings
+### Part 1: Word Embeddings
 - TF-IDF term-document matrix (10,001 × 300), saved to `embeddings/tfidf_matrix.npy`
 - PPMI co-occurrence matrix with window k=5, saved to `embeddings/ppmi_matrix.npy`
 - t-SNE visualisation of 200 most frequent tokens colour-coded by topic
 - Skip-gram Word2Vec trained under 3 conditions (C2, C3, C4) with negative sampling (K=10)
 - Four-condition MRR comparison: C1 PPMI (0.2282) > C3 cleaned (0.2127) > C2 raw (0.2048) > C4 d=200 (0.1981)
 
-### Part 2 — Sequence Labelling
+### Part 2: Sequence Labelling
 - 500 sentences annotated with rule-based POS tagger (683-entry lexicon) and BIO NER (gazetteer: 55 persons, 75 locations, 40 orgs)
 - 2-layer BiLSTM with dropout p=0.5, trained with Adam + early stopping
 - POS test accuracy: **0.9331** | Macro-F1: **0.7512** (fine-tuned embeddings)
 - NER with CRF + Viterbi decoding (entity F1 limited by label sparsity in training data)
 
-### Part 3 — Transformer Encoder
+### Part 3: Transformer Encoder
 - Custom Transformer built from scratch: scaled dot-product attention, multi-head self-attention (h=4, d=128), sinusoidal PE, Pre-LN encoder blocks ×4, [CLS] classification head
 - No `nn.Transformer`, `nn.MultiheadAttention`, or `nn.TransformerEncoder` used
 - Test accuracy: **0.5400** | Macro-F1: **0.4015**
